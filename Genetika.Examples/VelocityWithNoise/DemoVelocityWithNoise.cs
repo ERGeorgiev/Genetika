@@ -9,7 +9,7 @@ namespace Genetika.Examples.VelocityWithNoise
 {
     public class DemoVelocityWithNoise : Demo<DynamicEntity>
     {
-        public DemoVelocityWithNoise(int steps, AnnParameters parameters) 
+        public DemoVelocityWithNoise(int steps, GenetikaParameters parameters) 
             : base(DynamicEntity.NumberOfInputs, DynamicEntity.NumberOfOutputs, steps, parameters)
         {
             this.consoleMenu.AddItem(ConsoleKey.G, "goal", MenuSetGoal);
@@ -21,7 +21,7 @@ namespace Genetika.Examples.VelocityWithNoise
             string input = Console.ReadLine();
             if (string.IsNullOrEmpty(input))
             {
-                float goal = AnnParameters.random.Next(-10000.0f, 10000.0f);
+                float goal = GenetikaParameters.random.Next(-10000.0f, 10000.0f);
                 SetGoal(goal);
                 Console.WriteLine("Goal set.", Color.LightGreen);
             }

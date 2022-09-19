@@ -15,12 +15,12 @@ namespace Genetika.Examples
         {
             const int updates = 130;
             ConsoleMenu inputMenu = new ConsoleMenu();
-            AnnParameters annParameters = new AnnParameters();
-            inputMenu.AddItem(ConsoleKey.V, "Velocity", () => new DemoVelocity(updates, annParameters).Run());
-            inputMenu.AddItem(ConsoleKey.I, "Inertion", () => new DemoInertion(updates, annParameters).Run());
-            inputMenu.AddItem(ConsoleKey.T, "Translation", () => new DemoTranslation(updates, annParameters).Run());
-            inputMenu.AddItem(ConsoleKey.N, "VelocityWithNoise", () => new DemoVelocityWithNoise(updates, annParameters).Run());
-            inputMenu.AddItem(ConsoleKey.D, "InertionDouble", () => new DemoInertionDouble(updates, annParameters).Run());
+            GenetikaParameters parameters = new GenetikaParameters();
+            inputMenu.AddItem(ConsoleKey.V, "Velocity", () => new DemoVelocity(updates, parameters).Run());
+            inputMenu.AddItem(ConsoleKey.I, "Inertion", () => new DemoInertion(updates, parameters).Run());
+            inputMenu.AddItem(ConsoleKey.T, "Translation", () => new DemoTranslation(updates, parameters).Run());
+            inputMenu.AddItem(ConsoleKey.N, "VelocityWithNoise", () => new DemoVelocityWithNoise(updates, parameters).Run());
+            inputMenu.AddItem(ConsoleKey.D, "InertionDouble", () => new DemoInertionDouble(updates, parameters).Run());
             inputMenu.Display();
 
             Console.WriteLine("Demo finished. Press any key to exit...");

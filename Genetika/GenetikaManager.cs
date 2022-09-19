@@ -1,14 +1,14 @@
-﻿using Genetika.Genetic;
-using System;
-using System.Linq;
+﻿using EdsLibrary.Logging;
+using Genetika.Genetic;
 using Genetika.Interfaces;
+using System;
 using System.Collections.Generic;
-using EdsLibrary.Logging;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Genetika
 {
-    public abstract class AnnManager<T>
+    public abstract class GenetikaManager<T>
         where T : class, IEntity<T>
     {
         private Genome<T> genome;
@@ -20,11 +20,11 @@ namespace Genetika
         protected Gene<T> focusGene;
         protected List<T> dynamicEntities;
 
-        public AnnManager(
+        public GenetikaManager(
             int numberOfInputs,
             int numberOfOutputs,
             int updates,
-            AnnParameters parameters,
+            GenetikaParameters parameters,
             Func<T> createEntity = null)
         {
             this.numberOfInputs = numberOfInputs;

@@ -24,14 +24,14 @@ namespace Genetika.Neural
         {
             this.minLayers = numberOfInputs;
             this.maxLayers = numberOfInputs * 3;
-            int hiddenLayersCount = AnnParameters.random.Next(this.minLayers, this.maxLayers + 1);
+            int hiddenLayersCount = GenetikaParameters.random.Next(this.minLayers, this.maxLayers + 1);
             int numberOfNeurons = numberOfInputs;
 
             this.hiddenLayers = new NeuronLayer[hiddenLayersCount];
             this.hiddenLayers[0] = new NeuronLayer(numberOfNeurons, numberOfNeurons);
 
             int minNeurons = Math.Max(NeuronLayer.MinNeurons, numberOfInputs);
-            int neuronsLimit = (int)Math.Round(numberOfInputs * 5 * MathExt.Exponential(AnnParameters.random.NextDouble(), 5));
+            int neuronsLimit = (int)Math.Round(numberOfInputs * 5 * MathExt.Exponential(GenetikaParameters.random.NextDouble(), 5));
             neuronsLimit = Math.Max(minNeurons, neuronsLimit);
             for (int i = 1; i < this.hiddenLayers.Length; i++)
             {
@@ -47,7 +47,7 @@ namespace Genetika.Neural
                     maxNeurons = Math.Min(maxNeurons, neuronsLimit);
 
                     // Set the neuron count to a random value between min and max.
-                    numberOfNeurons = AnnParameters.random.Next(minNeurons, maxNeurons + 1);
+                    numberOfNeurons = GenetikaParameters.random.Next(minNeurons, maxNeurons + 1);
                 }
                 else
                 {
@@ -99,7 +99,7 @@ namespace Genetika.Neural
 
         public NeuronLayer RandomLayer()
         {
-            int posA = AnnParameters.random.Next(0, hiddenLayers.Length);
+            int posA = GenetikaParameters.random.Next(0, hiddenLayers.Length);
 
             return hiddenLayers[posA];
         }

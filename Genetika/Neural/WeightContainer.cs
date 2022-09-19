@@ -77,7 +77,7 @@ namespace Genetika.Neural
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int RandomWeightIndex()
         {
-            return AnnParameters.random.Next(0, weights.Length);
+            return GenetikaParameters.random.Next(0, weights.Length);
         }
 
         public void NullifyAll()

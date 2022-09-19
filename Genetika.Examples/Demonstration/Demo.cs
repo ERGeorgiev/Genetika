@@ -10,7 +10,7 @@ using Genetika.Interfaces;
 
 namespace Genetika.Examples.Demonstration
 {
-    public abstract class Demo<T> : AnnManager<T>
+    public abstract class Demo<T> : GenetikaManager<T>
         where T : class, IEntity<T>
     {
         private readonly string saveLocation = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Genetika\Saves\";
@@ -22,7 +22,7 @@ namespace Genetika.Examples.Demonstration
             int numberOfInputs,
             int numberOfOutputs,
             int updates,
-            AnnParameters parameters,
+            GenetikaParameters parameters,
             Func<T> createEntity = null)
             : base(numberOfInputs, numberOfOutputs, updates, parameters, createEntity)
         {

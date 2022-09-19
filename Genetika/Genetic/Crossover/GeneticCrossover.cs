@@ -42,7 +42,7 @@ namespace Genetika.Genetic.Crossover
             int maxLayers = Math.Min(geneA.network.hiddenLayers.Length, geneB.network.hiddenLayers.Length) - 1;
             for (int i = 0; i < maxLayers; i++)
             {
-                if ((float)AnnParameters.random.NextDouble() >= Ratio)
+                if ((float)GenetikaParameters.random.NextDouble() >= Ratio)
                     continue;
                 method(geneA.network.hiddenLayers[i], geneB.network.hiddenLayers[i]);
             }
@@ -55,7 +55,7 @@ namespace Genetika.Genetic.Crossover
         private static void SinglePoint(NeuronLayer layerA, NeuronLayer layerB)
         {
             int maxNeurons = Math.Min(layerA.Count, layerB.Count);
-            int position = AnnParameters.random.Next(0, maxNeurons);
+            int position = GenetikaParameters.random.Next(0, maxNeurons);
 
             for (int i = position; i < maxNeurons; i++)
             {
@@ -95,8 +95,8 @@ namespace Genetika.Genetic.Crossover
         private static void MultiPoint(NeuronLayer layerA, NeuronLayer layerB)
         {
             int maxNeurons = Math.Min(layerA.Count, layerB.Count);
-            int positionA = AnnParameters.random.Next(0, maxNeurons);
-            int positionB = AnnParameters.random.Next(positionA, maxNeurons);
+            int positionA = GenetikaParameters.random.Next(0, maxNeurons);
+            int positionB = GenetikaParameters.random.Next(positionA, maxNeurons);
 
             for (int i = positionA; i <= positionB; i++)
             {
@@ -110,7 +110,7 @@ namespace Genetika.Genetic.Crossover
 
             for (int i = 0; i < maxNeurons; i++)
             {
-                if ((float)AnnParameters.random.NextDouble() >= 0.5f)
+                if ((float)GenetikaParameters.random.NextDouble() >= 0.5f)
                     continue;
                 layerA.neurons[i] = new Neuron(layerB.neurons[i]);
             }

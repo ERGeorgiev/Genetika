@@ -11,7 +11,7 @@ namespace Genetika.Genetic.Mutation
 
         public static void Try(NeuralNetwork network, MutationType? mutationType = null)
         {
-            if (AnnParameters.random.NextDouble() > MutationRate)
+            if (GenetikaParameters.random.NextDouble() > MutationRate)
                 return;
 
             Process(network, mutationType);
@@ -49,8 +49,8 @@ namespace Genetika.Genetic.Mutation
             }
 
             NeuronLayer layer = layers.ToList().RandomElement();
-            int posA = AnnParameters.random.Next(0, layer.Count);
-            int posB = AnnParameters.random.Next(0, layer.Count);
+            int posA = GenetikaParameters.random.Next(0, layer.Count);
+            int posB = GenetikaParameters.random.Next(0, layer.Count);
 
             // Make sure mutation happens even when equal
             if (posA == posB)
@@ -77,7 +77,7 @@ namespace Genetika.Genetic.Mutation
         private static void RandomizeWeight(NeuralNetwork network)
         {
             NeuronLayer layer = network.RandomLayer();
-            int posA = AnnParameters.random.Next(0, layer.Count);
+            int posA = GenetikaParameters.random.Next(0, layer.Count);
 
             layer.neurons[posA].RandomizeSingle();
         }
@@ -85,15 +85,15 @@ namespace Genetika.Genetic.Mutation
         private static void NullifyInput(NeuralNetwork network)
         {
             NeuronLayer layer = network.hiddenLayers[0];
-            int posA = AnnParameters.random.Next(0, layer.Count);
+            int posA = GenetikaParameters.random.Next(0, layer.Count);
             layer.neurons[posA].NullifyAll();
         }
 
         private static void NullifyWeight(NeuralNetwork network)
         {
             NeuronLayer layer = network.RandomLayer();
-            int posA = AnnParameters.random.Next(0, layer.Count);
-            if (AnnParameters.random.Next(0, 10) != 0)
+            int posA = GenetikaParameters.random.Next(0, layer.Count);
+            if (GenetikaParameters.random.Next(0, 10) != 0)
             {
                 layer.neurons[posA].NullifySingle();
             }
@@ -105,7 +105,7 @@ namespace Genetika.Genetic.Mutation
 
         public static MutationType RandomMutationType()
         {
-            return (MutationType)AnnParameters.random.Next(0, Enum.GetValues(typeof(MutationType)).Length);
+            return (MutationType)GenetikaParameters.random.Next(0, Enum.GetValues(typeof(MutationType)).Length);
         }
     }
 }

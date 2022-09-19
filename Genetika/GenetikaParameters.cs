@@ -5,13 +5,12 @@ using Genetika.Genetic.Selection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace Genetika
 {
     [Serializable]
-    public class AnnParameters
+    public class GenetikaParameters
     {
         public static Random random = new Random();
 
@@ -37,18 +36,18 @@ namespace Genetika
             }
         }
 
-        public static AnnParameters Load(string filePath)
+        public static GenetikaParameters Load(string filePath)
         {
             using (StreamReader r = new StreamReader(filePath))
             {
                 string json = r.ReadToEnd();
-                AnnParameters parameters = FromJson(json);
+                GenetikaParameters parameters = FromJson(json);
                 return parameters;
             }
         }
 
         public string ToJson() => JsonConvert.SerializeObject(this, Formatting.Indented);
 
-        public static AnnParameters FromJson(string json) => JsonConvert.DeserializeObject<AnnParameters>(json);
+        public static GenetikaParameters FromJson(string json) => JsonConvert.DeserializeObject<GenetikaParameters>(json);
     }
 }

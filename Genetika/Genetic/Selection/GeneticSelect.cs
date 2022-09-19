@@ -27,7 +27,7 @@ namespace Genetika.Genetic.Selection
             if (genes?.Count <= 0)
                 return default;
 
-            int index = AnnParameters.random.Next(0, genes.Count);
+            int index = GenetikaParameters.random.Next(0, genes.Count);
             return genes[index];
         }
 
@@ -45,7 +45,7 @@ namespace Genetika.Genetic.Selection
                 pieLedger.Add(gene, totalScore);
             }
 
-            float chosen = (float)AnnParameters.random.NextDouble() * totalScore;
+            float chosen = (float)GenetikaParameters.random.NextDouble() * totalScore;
             foreach (Gene<T> gene in pieLedger.Keys)
             {
                 if (pieLedger[gene] >= chosen)

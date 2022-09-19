@@ -22,7 +22,7 @@ namespace Genetika.Genetic
         [JsonProperty]
         public readonly int numberOfOutputs;
         [JsonProperty]
-        public readonly AnnParameters parameters = new AnnParameters();
+        public readonly GenetikaParameters parameters = new GenetikaParameters();
         [JsonProperty]
         public List<Gene<T>> genes;
 
@@ -31,7 +31,7 @@ namespace Genetika.Genetic
         {
         }
 
-        public Genome(int numberOfInputs, int numberOfOutputs, List<Gene<T>> genes, AnnParameters parameters = null)
+        public Genome(int numberOfInputs, int numberOfOutputs, List<Gene<T>> genes, GenetikaParameters parameters = null)
         {
             this.parameters = parameters ?? this.parameters;
             this.numberOfInputs = numberOfInputs;
@@ -39,7 +39,7 @@ namespace Genetika.Genetic
             this.genes = genes;
         }
 
-        public Genome(int numberOfInputs, int numberOfOutputs, List<T> entities, AnnParameters parameters = null)
+        public Genome(int numberOfInputs, int numberOfOutputs, List<T> entities, GenetikaParameters parameters = null)
         {
             this.parameters = parameters ?? this.parameters;
             this.numberOfInputs = numberOfInputs;

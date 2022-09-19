@@ -29,8 +29,8 @@ namespace Genetika.Neural
             // some inputs, no matter how irrelevant, will always be in play.
             //value = (float)Math.Pow(value, 1 / root);
 
-            return AnnParameters.random.Next(minimumValue, maximumValue) 
-                * (1f + (((float)(Math.Pow(1000000f, AnnParameters.random.Next(0, maximumValue)) - 1f) / (1000000f - 1f)) * 9f)); 
+            return GenetikaParameters.random.Next(minimumValue, maximumValue) 
+                * (1f + (((float)(Math.Pow(1000000f, GenetikaParameters.random.Next(0, maximumValue)) - 1f) / (1000000f - 1f)) * 9f)); 
             // Maps [0 -> 1] to [0 -> 10];
         }
 
