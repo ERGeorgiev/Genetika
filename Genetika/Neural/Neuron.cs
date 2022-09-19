@@ -38,7 +38,7 @@ namespace Genetika.Neural
 
             input = CalculateInput(output, inputs.Length);
         }
-        
+
         /// <param name="sum">Summarized and weighted input.</param>
         /// <param name="numberOfInputs">Divisor.</param>
         public static double CalculateInput(double sumInputs, int numberOfInputs)

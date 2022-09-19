@@ -97,7 +97,7 @@ namespace Genetika
         protected void Simulate(Genome<T> genome)
         {
             PreSimulation();
-            Logger.Log($"# GENERATION: { genome.Generation }", LogPriority.Medium, ConsoleColor.White);
+            Logger.Log($"# GENERATION: {genome.Generation}", LogPriority.Medium, ConsoleColor.White);
 
 
             Logger.LogTableHeaders(genome.genes[0].GetTableFormatter(), LogPriority.Medium);

@@ -9,7 +9,7 @@ namespace Genetika.Examples.VelocityWithNoise
 {
     public class DemoVelocityWithNoise : Demo<DynamicEntity>
     {
-        public DemoVelocityWithNoise(int steps, GenetikaParameters parameters) 
+        public DemoVelocityWithNoise(int steps, GenetikaParameters parameters)
             : base(DynamicEntity.NumberOfInputs, DynamicEntity.NumberOfOutputs, steps, parameters)
         {
             this.consoleMenu.AddItem(ConsoleKey.G, "goal", MenuSetGoal);

@@ -9,7 +9,7 @@ namespace Genetika.Examples.Translation
 {
     public class DemoTranslation : Demo<DynamicEntity>
     {
-        public DemoTranslation(int steps, GenetikaParameters parameters) 
+        public DemoTranslation(int steps, GenetikaParameters parameters)
             : base(DynamicEntity.NumberOfInputs, DynamicEntity.NumberOfOutputs, steps, parameters)
         {
             this.consoleMenu.AddItem(ConsoleKey.G, "goal", MenuSetGoal);

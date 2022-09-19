@@ -8,7 +8,7 @@ namespace Genetika.Examples.Inertion
 {
     public class DemoInertion : Demo<DynamicEntity>
     {
-        public DemoInertion(int steps, GenetikaParameters parameters) 
+        public DemoInertion(int steps, GenetikaParameters parameters)
             : base(DynamicEntity.NumberOfInputs, DynamicEntity.NumberOfOutputs, steps, parameters)
         {
             this.consoleMenu.AddItem(ConsoleKey.G, "goal", MenuSetGoal);

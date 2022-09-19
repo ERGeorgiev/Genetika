@@ -18,7 +18,7 @@ namespace Genetika.Genetic.Crossover
         /// <param name="crossoverType">Crossover type.</param>
         public static void NeuronLayer(Gene<T> geneA, Gene<T> geneB, CrossoverType crossoverType)
         {
-            switch(crossoverType)
+            switch (crossoverType)
             {
                 case CrossoverType.None:
                     Process(geneA, geneB, None);

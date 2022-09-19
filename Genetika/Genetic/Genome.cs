@@ -239,7 +239,8 @@ namespace Genetika.Genetic
         public void Attach(List<T> newEntities)
         {
             // Remove extra genes.
-            genes.Sort((a, b) => {
+            genes.Sort((a, b) =>
+            {
                 if (a.entity == null && b.entity == null) return 0;
                 else if (a.entity == null) return 1;
                 else if (b.entity == null) return -1;
