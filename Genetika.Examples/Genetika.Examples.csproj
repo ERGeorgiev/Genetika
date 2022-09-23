@@ -72,6 +72,9 @@
     <Compile Include="Translation\DemoTranslation.cs" />
     <Compile Include="Translation\DynamicEntity.cs" />
     <Compile Include="Translation\PhysicalEntity.cs" />
+    <Compile Include="Paint\DemoPaint.cs" />
+    <Compile Include="Paint\ArtistEntity.cs" />
+    <Compile Include="Paint\CanvasEntity.cs" />
     <Compile Include="VelocityWithNoise\DemoVelocityWithNoise.cs" />
     <Compile Include="VelocityWithNoise\DynamicEntity.cs" />
     <Compile Include="VelocityWithNoise\PhysicalEntity.cs" />

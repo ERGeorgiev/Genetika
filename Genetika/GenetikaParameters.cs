@@ -14,7 +14,7 @@ namespace Genetika
     {
         public static Random random = new Random();
 
-        public int population = 1000;
+        public int population = 100;
         public decimal geneReplaceRatio = 0.4m;
         public decimal elitismRatio = 0.2m;
         [JsonConverter(typeof(StringEnumConverter))]

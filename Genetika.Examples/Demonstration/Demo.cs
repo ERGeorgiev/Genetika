@@ -36,7 +36,7 @@ namespace Genetika.Examples.Demonstration
             consoleMenu.AddItem(ConsoleKey.R, "Remove", MenuRemoveGene);
         }
 
-        public float Run()
+        public virtual float Run()
         {
             Simulate(Genome);
             consoleMenu.DisplayContinously();
