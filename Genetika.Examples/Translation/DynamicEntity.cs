@@ -2,8 +2,8 @@
 using Genetika.Interfaces;
 using System;
 using System.Collections.Generic;
-using EdsLibrary.Logging;
 using Genetika.Genetic.Fitness;
+using EdsLibrary.Logging.Table;
 
 namespace Genetika.Examples.Translation
 {

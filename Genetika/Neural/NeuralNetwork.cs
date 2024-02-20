@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Genetika.Interfaces;
-using EdsLibrary.Logging;
 using EdsLibrary.Extensions;
 using Newtonsoft.Json;
+using EdsLibrary.Logging.Table;
 
 namespace Genetika.Neural
 {

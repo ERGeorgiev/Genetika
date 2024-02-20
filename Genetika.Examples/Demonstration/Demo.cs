@@ -5,8 +5,8 @@ using System.Linq;
 using System.Drawing;
 using System.IO;
 using System.Collections.Generic;
-using EdsLibrary.Logging;
 using Genetika.Interfaces;
+using EdsLibrary.ConsoleHelpers;
 
 namespace Genetika.Examples.Demonstration
 {

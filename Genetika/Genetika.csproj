@@ -125,8 +125,8 @@
     <Content Include="Genetika.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EdsLibrary\EdsLibrary\EdsLibrary.csproj">
-      <Project>{d76705be-f2b3-488e-80ab-9acfe852830e}</Project>
+    <ProjectReference Include="..\..\eds-lib\EdsLibrary\EdsLibrary.csproj">
+      <Project>{b0edd6c8-b101-4759-bc9f-9e748e6e1eb2}</Project>
       <Name>EdsLibrary</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿using EdsLibrary.Logging;
+﻿using EdsLibrary.Logging.Table;
 using Genetika.Genetic.Fitness;
 using Genetika.Interfaces;
 using System.Collections.Generic;

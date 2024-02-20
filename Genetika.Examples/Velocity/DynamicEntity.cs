@@ -1,8 +1,8 @@
 ﻿using Genetika.Interfaces;
 using System.Collections.Generic;
-using EdsLibrary.Logging;
 using System;
 using Genetika.Genetic.Fitness;
+using EdsLibrary.Logging.Table;
 
 namespace Genetika.Examples.Velocity
 {

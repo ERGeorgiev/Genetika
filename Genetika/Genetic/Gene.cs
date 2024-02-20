@@ -1,11 +1,11 @@
 ﻿using Genetika.Genetic.Fitness;
 using Genetika.Interfaces;
 using Genetika.Neural;
-using EdsLibrary.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using EdsLibrary.Logging.Table;
 
 namespace Genetika.Genetic
 {

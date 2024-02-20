@@ -1,4 +1,4 @@
-﻿using EdsLibrary.Logging;
+﻿using EdsLibrary.Logging.Table;
 
 namespace Genetika.Interfaces
 {

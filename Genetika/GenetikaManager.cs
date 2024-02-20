@@ -1,10 +1,13 @@
-﻿using EdsLibrary.Logging;
+﻿using EdsLibrary.ConsoleHelpers;
+using EdsLibrary.Enums;
+using EdsLibrary.Logging.Table;
 using Genetika.Genetic;
 using Genetika.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace Genetika
 {
@@ -38,8 +41,6 @@ namespace Genetika
             }
             this.genome = new Genome<T>(this.numberOfInputs, this.numberOfOutputs, this.dynamicEntities, parameters);
         }
-
-        public ILogger Logger { get; set; } = new ConsoleLogger();
 
         protected Genome<T> Genome
         {
@@ -97,10 +98,10 @@ namespace Genetika
         protected void Simulate(Genome<T> genome)
         {
             PreSimulation();
-            Logger.Log($"# GENERATION: {genome.Generation}", LogPriority.Medium, ConsoleColor.White);
+            ConsoleWriter.Write($"# GENERATION: {genome.Generation}", Priority.Medium, ConsoleColor.White);
 
 
-            Logger.LogTableHeaders(genome.genes[0].GetTableFormatter(), LogPriority.Medium);
+            ConsoleWriter.Write(genome.genes[0].GetTableFormatter().GetHeadersString(), Priority.Medium);
             for (int u = 0; u < updates; u++)
             {
                 PreUpdate();
@@ -109,13 +110,13 @@ namespace Genetika
                 Gene<T> elite = genome.GetElites(1).FirstOrDefault();
                 if (elite == null)
                 {
-                    Logger.Log($"No genes found.", LogPriority.High);
+                    ConsoleWriter.Write($"No genes found.", Priority.High);
                     return;
                 }
 
-                LogPriority logPriority = (u == 0 || u == updates - 1) ? LogPriority.Medium : LogPriority.Low;
+                Priority logPriority = (u == 0 || u == updates - 1) ? Priority.Medium : Priority.Low;
                 TableFormatter formatter = (FocusGene == default) ? elite.GetTableFormatter() : elite.GetTableFormatter(FocusGene);
-                Logger.LogTableValues(formatter, logPriority);
+                ConsoleWriter.Write(formatter.GetValuesString(), logPriority);
 
                 PostUpdate();
             }
@@ -128,40 +129,40 @@ namespace Genetika
             if (FocusGene == default)
             {
                 TableFormatter formatter = gene.network.GetTableFormatter();
-                Logger?.LogTableHeaders(formatter, LogPriority.Low);
-                Logger?.LogTableValues(formatter, LogPriority.Low);
+                ConsoleWriter.Write(formatter.GetHeadersString(), Priority.Low);
+                ConsoleWriter.Write(formatter.GetValuesString(), Priority.Low);
             }
             else
             {
                 TableFormatter formatter = gene.network.GetTableFormatter(FocusGene.network);
-                Logger?.LogTableHeaders(formatter, LogPriority.Low);
-                Logger?.LogTableValues(formatter, LogPriority.Low);
+                ConsoleWriter.Write(formatter.GetHeadersString(), Priority.Low);
+                ConsoleWriter.Write(formatter.GetValuesString(), Priority.Low);
             }
         }
 
         protected void PrintAllGenes()
         {
             TableFormatter formatter = genome.genes[0].GetTableFormatter();
-            Logger?.LogTableHeaders(formatter, LogPriority.Medium);
+            ConsoleWriter.Write(formatter.GetHeadersString(), Priority.Medium);
             foreach (var gene in genome.genes)
             {
                 formatter = gene.GetTableFormatter();
-                Logger?.LogTableValues(formatter, LogPriority.Medium);
+                ConsoleWriter.Write(formatter.GetValuesString(), Priority.Medium);
             }
-            Logger.Log($"Total Genes: {genome.genes.Count}", LogPriority.Medium);
+            ConsoleWriter.Write($"Total Genes: {genome.genes.Count}", Priority.Medium);
         }
 
         protected void RunValidityScan()
         {
             if (genome.RunValidityScan() == false)
-                Logger.LogError("Genome is invalid.");
+                ConsoleWriter.WriteError("Genome is invalid.");
         }
 
         protected void ValidateFocusGene()
         {
             if (FocusGene != default && genome.genes.Contains(FocusGene) == false)
             {
-                Logger.Log("The focused gene has gone extinct.", LogPriority.Medium, ConsoleColor.DarkYellow);
+                ConsoleWriter.Write("The focused gene has gone extinct.", Priority.Medium, ConsoleColor.DarkYellow);
                 FocusGene = default;
             }
         }
@@ -206,10 +207,10 @@ namespace Genetika
                 {
                     if (i != 0 && i < (repeat - 1))
                     {
-                        LogPriority oldPriority = Logger.LogPriority;
-                        Logger.LogPriority = LogPriority.Medium;
+                        Priority oldPriority = ConsoleWriter.MinimumPriority;
+                        ConsoleWriter.MinimumPriority = Priority.Medium;
                         Simulate(genome);
-                        Logger.LogPriority = oldPriority;
+                        ConsoleWriter.MinimumPriority = oldPriority;
                     }
                     else
                     {

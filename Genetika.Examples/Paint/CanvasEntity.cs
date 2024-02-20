@@ -66,10 +66,11 @@ namespace Genetika.Examples.Paint
             positionY += yChange;
             positionY %= canvasSize;
 
-            for (float i = oldX; i < length; i++)
-            {
-                WriteToCanvas(positionX, positionY, 10);
-            }
+            // ToDo: Unfinished
+            //for (float i = oldX; i < length; i++)
+            //{
+            //    WriteToCanvas(positionX, positionY, 10);
+            //}
         }
 
         private void WriteToCanvas(float x, float y, byte strength)

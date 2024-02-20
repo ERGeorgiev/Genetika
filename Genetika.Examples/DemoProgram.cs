@@ -1,4 +1,4 @@
-﻿using EdsLibrary.Logging;
+﻿using EdsLibrary.ConsoleHelpers;
 using Genetika.Examples.Inertion;
 using Genetika.Examples.InertionDouble;
 using Genetika.Examples.Paint;

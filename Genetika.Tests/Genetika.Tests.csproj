@@ -57,8 +57,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EdsLibrary\EdsLibrary\EdsLibrary.csproj">
-      <Project>{D76705BE-F2B3-488E-80AB-9ACFE852830E}</Project>
+    <ProjectReference Include="..\..\eds-lib\EdsLibrary\EdsLibrary.csproj">
+      <Project>{b0edd6c8-b101-4759-bc9f-9e748e6e1eb2}</Project>
       <Name>EdsLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\Genetika.Examples\Genetika.Examples.csproj">

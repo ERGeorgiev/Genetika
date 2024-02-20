@@ -1,9 +1,9 @@
 ﻿using Genetika.Interfaces;
 using System.Collections.Generic;
-using EdsLibrary.Logging;
 using System;
 using Genetika.Genetic.Fitness;
 using EdsLibrary.Extensions;
+using EdsLibrary.Logging.Table;
 
 namespace Genetika.Examples.VelocityWithNoise
 {
